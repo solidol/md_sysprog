@@ -36,22 +36,22 @@
 
 ```cpp
 HANDLE CreateFile(
-  LPCTSTR lpFileName, // file name
-  DWORD dwDesiredAccess, // access mode
-  DWORD dwShareMode, // share mode
+  LPCTSTR lpFileName, // ім'я файлу
+  DWORD dwDesiredAccess, // режим доступу
+  DWORD dwShareMode, // режим спільного доступу
   LPSECURITY_ATTRIBUTES lpSecurityAttributes, // SD
-  DWORD dwCreationDisposition, // how to create
-  DWORD dwFlagsAndAttributes, // file attributes
-  HANDLE hTemplateFile // handle to template file
+  DWORD dwCreationDisposition, // як створити
+  DWORD dwFlagsAndAttributes, // атрибути файлу
+  HANDLE hTemplateFile // обробка  шаблону файлу
 );
 ```
 
 
 
-Параметры:
+Параметри:
 
 lpFileName:
-[in]Покажчик на рядок, що містить ім'я об'єкта для створення або відкриття (ім'я файлу, шлях до файлу, ім'я каналу та ін.). Якщо ім'я задається літеральної константою, то слід помістити її в макрос TEXT () або поставити L перед лапками, які відкриваються. Наприклад,  TEXT("C:\\tmp.txt") или L"C:\\tmp.txt"
+[in] Покажчик на рядок, що містить ім'я об'єкта для створення або відкриття (ім'я файлу, шлях до файлу, ім'я каналу та ін.). Якщо ім'я задається літеральної константою, то слід помістити її в макрос TEXT () або поставити L перед лапками, які відкриваються. Наприклад,  TEXT("C:\\tmp.txt") або L"C:\\tmp.txt"
 
 dwDesiredAccess:
 [in] Опис бажаного режиму доступу до файлу. Існує можливість передачі великої кількості різних прапорів. Нас цікавлять прапори GENERIC_READ, GENERIC_WRITE і їх об'єднання. При доступі до каналів слід враховувати режим створення каналу сервером. Якщо сервер створив канал для запису, то клієнт відкриває його для читання і навпаки. Якщо сервер створив канал для читання і запису, то клієнт може відкрити його як для читання, так і для запису. 
@@ -85,10 +85,10 @@ dwFlagsAndAttributes:
 
 ```cpp
 BOOL CopyFile(
-  LPCTSTR lpExistingFileName, // имя существующего файла
-  LPCTSTR lpNewFileName, // имя нового файла
-  BOOL bFailIfExists // действие, если файл существует TRUE – ошибка
-  // FALSE - перезаписывать
+  LPCTSTR lpExistingFileName, // ім'я існуючого файлу 
+  LPCTSTR lpNewFileName, // ім'я нового файлу
+  BOOL bFailIfExists // дію, якщо файл існує TRUE - помилка
+  // FALSE - перезаписувати
 );
 ```
 
@@ -137,17 +137,17 @@ BOOL DeleteFile(
 
 ```cpp
 BOOL ReadFile(
-  HANDLE hFile, // дескриптор файла
-  LPVOID lpBuffer, // буфер данных
-  DWORD nNumberOfBytesToRead, // количество байт для прочтения
-  LPDWORD lpNumberOfBytesRead, // количество фактически прочитанных байт
-  LPOVERLAPPED lpOverlapped // указатель на структуру, используемую при
-  // асинхронном чтении
+  HANDLE hFile, // дескриптор файлу
+  LPVOID lpBuffer, // буфер даних
+  DWORD nNumberOfBytesToRead, // кількість байт для прочитання
+  LPDWORD lpNumberOfBytesRead, // кількість фактично прочитаних байт
+  LPOVERLAPPED lpOverlapped // покажчик на структуру, яка використовується під час
+  // асинхронному читанні
 );
 ```
 
 
-Параметры:
+Параметри:
 
 hFile:
 [in] Дескриптор читаного файлу. Повинен бути відкритий з доступом GENERIC_READ.
@@ -177,16 +177,16 @@ lpOverlapped:
 
 ```cpp
 BOOL WriteFile(
-  HANDLE hFile, // дескриптор файла
-  LPCVOID lpBuffer, // буфер данных
-  DWORD nNumberOfBytesToWrite, // количество байт для записи
-  LPDWORD lpNumberOfBytesWritten,// количество фактически записанных байт
-  LPOVERLAPPED lpOverlapped // указатель на структуру, используемую при
-  // асинхронном чтении
+  HANDLE hFile, // дескриптор файлу
+  LPCVOID lpBuffer, // буфер даних
+  DWORD nNumberOfBytesToWrite, // кількість байт для запису
+  LPDWORD lpNumberOfBytesWritten,// кількість фактично записаних байт
+  LPOVERLAPPED lpOverlapped // покажчик на структуру, яка використовується під час
+  // асинхронному читанні
 );
 ```
 
-Параметры:
+Параметри:
 
 hFile:
 [in] Дескриптор файлу, в який проводиться запис. Повинен бути відкритий з доступом GENERIC_WRITE.
@@ -215,11 +215,11 @@ lpOverlapped:
 
 ```cpp
 BOOL LockFile(
-  HANDLE hFile, // дескриптор файла
-  DWORD dwFileOffsetLow, // младшее слово смещения начала отрезка
+  HANDLE hFile, // дескриптор файлу
+  DWORD dwFileOffsetLow, // молодше слово зміщення початку відрізка
   DWORD dwFileOffsetHigh, // старшее слово смещения начала отрезка
-  DWORD nNumberOfBytesToLockLow, // младшее слово длины отрезка
-  DWORD nNumberOfBytesToLockHigh // старшее слово длины отрезка
+  DWORD nNumberOfBytesToLockLow, // молодше слово довжини відрізка
+  DWORD nNumberOfBytesToLockHigh // старше слово довжини відрізка
 );
 ```
 
@@ -253,11 +253,11 @@ nNumberOfBytesToLockHigh:
 
 ```cpp
 BOOL UnlockFile(
-  HANDLE hFile, // дескриптор файла
-  DWORD dwFileOffsetLow, // младшее слово смещения начала отрезка
-  DWORD dwFileOffsetHigh, // старшее слово смещения начала отрезка
-  DWORD nNumberOfBytesToUnlockLow, // младшее слово длины отрезка
-  DWORD nNumberOfBytesToUnlockHigh // старшее слово длины отрезка
+  HANDLE hFile, // дескриптор файлу
+  DWORD dwFileOffsetLow, // молодше слово зміщення початку відрізка
+  DWORD dwFileOffsetHigh, // старше слово зміщення початку відрізка
+  DWORD nNumberOfBytesToUnlockLow, // молодше слово довжини відрізка
+  DWORD nNumberOfBytesToUnlockHigh // старше слово довжини відрізка
 );
 ```
 
