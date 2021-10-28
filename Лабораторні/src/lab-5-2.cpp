@@ -2,11 +2,11 @@
 using namespace std;
 int main()
 {
-    //приклад 1 + 1*2 + 1*3+ ... + 1*n
-    int i = 2; 
-    int sum = 1; 
+    //приклад 1 + 2 + 3+ ... + n
+    int i = 1; 
+    int sum = 0; 
     do{
-        sum = sum + 1*i;
+        sum = sum + i;
         i++;
     } while(i<=10);
     cout << sum;
