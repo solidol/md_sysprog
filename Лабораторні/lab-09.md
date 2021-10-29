@@ -78,112 +78,50 @@ printf("Букви  %s",alphabet);
 ```
 
 ### Функції бібліотеки STRING (CSTRING)
-
 |Ім'я |Примітки|
 |--|--|
-|void    \*memcpy(void \*dest, const void \*src, size_t n);
-|копіює n байтів з області пам'яті src в dest, які не повинні перетинатися, у іншому випадку результат невизначений (можливо як правильне копіювання, так і ні)
-|
-|void    \*memmove(void \*dest, const void \*src, size_t n);
-|копіює n байтів з області пам'яті src в dest, які на відміну від memcpy можуть перекриватися
-|
-|void    \*memchr(const void \*s, int symbol, size_t n);
-|Повертає вказівник на перше входження з в перших n байтах s, або NULL, якщо не знайдено
-|
-|int      memcmp(const void \*s1, const void \*s2, size_t n);
-|порівнює перші n символів в областях пам'яті
-|
-|void    \*memset(void \*, int z, size_t);
-|заповнює область пам'яті одним байтом z
-|
-|char    \*strcat(char \*dest, const char \*src);
-|дописує рядок src в кінець dest
-|
-|char    \*strncat(char \*dest, const char \*, size_t);
-|дописує не більше n початкових символів рядка src (або всю src, якщо її довжина менше) у кінець dest
-|
-|char    \*strchr(const char \*, int);
-|шукає символ у рядку, починаючи з голови і повертає його адресу, або NULL якщо не знайдений
-|
-|char    \*strrchr(const char \*, int);
-|шукає символ у рядку, починаючи з хвоста і повертає його адресу, або NULL якщо не знайдений
-|
-|int      strcmp(const char \*, const char \*);
-|лексикографічне порівняння рядків
-|
-|int      strncmp(const char \*, const char \*, size_t);
-|лексикографічне порівняння перших n байтів рядків
-|
-|int      strcoll(const char \*, const char \*);
-|лексикографічне порівняння рядків з урахуванням локалі  collating order
-|
-|char    \*strcpy(char \*toHere, const char \*fromHere);
-|копіює рядок з одного місця в інше
-|
-|char    \*strncpy(char \*toHere, const char \*fromHere, size_t n);
-|копіює до n байт рядку з одного місця в інше
-|
-|char    \*strerror(int);
-|повертає рядкове подання повідомлення про помилку  errno (не потокобезпечна)
-|
-|size_t   strlen(const char \*);
-|повертає довжину рядка
-|
-|size_t   strspn(const char \*s, const char \*accept);
-|визначає максимальну довжину початкового підрядка, що складається виключно з байтів, перерахованих в accept
-|
-|size_t   strcspn(const char \*s, const char \*reject);
-|визначає максимальну довжину початкового підрядка, що складається виключно з байтів, не перелічених у reject
-|
-|char    \*strpbrk(const char \*s, const char \*accept);
-|знаходить перше входження будь-якого символу, перерахованого в accept
-|
-|char    \*strstr(const char \*haystack, const char \*needle);
-|знаходить перше входження рядка needle в haystack
-|
-|char    \*strtok(char \*, const char \*);
-|перетворює рядок у послідовність токенів. Не потіко-безпечна, нереєнтрантна.
-|
-|size_t   strxfrm(char \*dest, const char \*src, size_t n);
-|створює відтрансльовану копію рядка, таку, що дослівне порівняння її (strcmp) буде еквівалентно порівнянню з коллатором.
-|
+|void    \*memcpy(void \*dest, const void \*src, size_t n);|копіює n байтів з області пам'яті src в dest, які не повинні перетинатися, у іншому випадку результат невизначений (можливо як правильне копіювання, так і ні)|
+|void    \*memmove(void \*dest, const void \*src, size_t n);|копіює n байтів з області пам'яті src в dest, які на відміну від memcpy можуть перекриватися|
+|void    \*memchr(const void \*s, int symbol, size_t n);|Повертає вказівник на перше входження з в перших n байтах s, або NULL, якщо не знайдено|
+|int      memcmp(const void \*s1, const void \*s2, size_t n);|порівнює перші n символів в областях пам'яті|
+|void    \*memset(void \*, int z, size_t);|заповнює область пам'яті одним байтом z|
+|char    \*strcat(char \*dest, const char \*src);|дописує рядок src в кінець dest|
+|char    \*strncat(char \*dest, const char \*, size_t);|дописує не більше n початкових символів рядка src (або всю src, якщо її довжина менше) у кінець dest|
+|char    \*strchr(const char \*, int);|шукає символ у рядку, починаючи з голови і повертає його адресу, або NULL якщо не знайдений|
+|char    \*strrchr(const char \*, int);|шукає символ у рядку, починаючи з хвоста і повертає його адресу, або NULL якщо не знайдений|
+|int      strcmp(const char \*, const char \*);|лексикографічне порівняння рядків|
+|int      strncmp(const char \*, const char \*, size_t);|лексикографічне порівняння перших n байтів рядків|
+|int      strcoll(const char \*, const char \*);|лексикографічне порівняння рядків з урахуванням локалі  collating order|
+|char    \*strcpy(char \*toHere, const char \*fromHere);|копіює рядок з одного місця в інше|
+|char    \*strncpy(char \*toHere, const char \*fromHere, size_t n);|копіює до n байт рядку з одного місця в інше|
+|char    \*strerror(int);|повертає рядкове подання повідомлення про помилку  errno (не потокобезпечна)|
+|size_t   strlen(const char \*);|повертає довжину рядка|
+|size_t   strspn(const char \*s, const char \*accept);|визначає максимальну довжину початкового підрядка, що складається виключно з байтів, перерахованих в accept|
+|size_t   strcspn(const char \*s, const char \*reject);|визначає максимальну довжину початкового підрядка, що складається виключно з байтів, не перелічених у reject|
+|char    \*strpbrk(const char \*s, const char \*accept);|знаходить перше входження будь-якого символу, перерахованого в accept|
+|char    \*strstr(const char \*haystack, const char \*needle);|знаходить перше входження рядка needle в haystack|
+|char    \*strtok(char \*, const char \*);|перетворює рядок у послідовність токенів. Не потіко-безпечна, нереєнтрантна.|
+|size_t   strxfrm(char \*dest, const char \*src, size_t n);|створює відтрансльовану копію рядка, таку, що дослівне порівняння її (strcmp) буде еквівалентно порівнянню з коллатором.|
 
 ### Функції бібліотеки CTYPE
-
 |Ім'я |Примітки|
 |--|--|
-|int isalnum(int symbol)| чи символ є буквою або цифрою
-|
-|int isalpha(int symbol)| чи символ є буквою
-|
-|int isblank(int symbol)| чи є пропуском (доданий до C99)
-|
-|int iscntrl(int symbol)| чи є керуючим символом
-|
-|int isdigit(int symbol)| чи є цифрою
-|
-|int isgraph(int symbol)| чи є символом, який має графічне представлення
-|
-|int islower(int symbol)| чи є символом нижнього регістру
-|
-|int isprint(int symbol)| чи є символом, який можна надрукувати
-|
-|int ispunct(int symbol)| чи є символом пунктуації
-|
-|int isspace(int symbol)| чи є пропуском
-|
-|int isupper(int symbol)| чи є буквою верхнього регістру
-|
-|int isxdigit(int symbol)| чи є шістнадцятковим числом
-|
-|int tolower(int symbol) | приводить символ до нижнього регістру
-|
-|int toupper(int symbol) | приводить символ до верхнього регістру
-|
-|int isascii(int symbol)| повертає числове значення символу від 0 до 127
-|
-|int toascii(int symbol)| конвертує символ у ASCII
-|
+|int isalnum(int symbol)| чи символ є буквою або цифрою|
+|int isalpha(int symbol)| чи символ є буквою|
+|int isblank(int symbol)| чи є пропуском (доданий до C99)|
+|int iscntrl(int symbol)| чи є керуючим символом|
+|int isdigit(int symbol)| чи є цифрою|
+|int isgraph(int symbol)| чи є символом, який має графічне представлення|
+|int islower(int symbol)| чи є символом нижнього регістру|
+|int isprint(int symbol)| чи є символом, який можна надрукувати|
+|int ispunct(int symbol)| чи є символом пунктуації|
+|int isspace(int symbol)| чи є пропуском|
+|int isupper(int symbol)| чи є буквою верхнього регістру|
+|int isxdigit(int symbol)| чи є шістнадцятковим числом|
+|int tolower(int symbol) | приводить символ до нижнього регістру|
+|int toupper(int symbol) | приводить символ до верхнього регістру|
+|int isascii(int symbol)| повертає числове значення символу від 0 до 127|
+|int toascii(int symbol)| конвертує символ у ASCII|
 
 ## Хід роботи
 
