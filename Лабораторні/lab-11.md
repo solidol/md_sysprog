@@ -48,7 +48,7 @@ struct Worker { // начало объявления структурного т
 	unsigned short int year; //объявление поля «год поступления на работу»
 }; //конец объявление структуры Worker
 int _tmain(int argc, _TCHAR* argv[]){
-  int n = 10; // объявление константы n — числа элементов типа «Worker»
+	int n = 10; // объявление константы n — числа элементов типа «Worker»
 	bool people = false;
 	unsigned short int now_year = 2015, seniority; // объявление переменных now_year — текущий год и seniority — стаж
 	Worker* K = new Worker[n];

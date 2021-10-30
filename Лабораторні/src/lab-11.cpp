@@ -6,6 +6,7 @@ struct Worker { // начало объявления структурного т
 	char position[15]; //объявление поля «название занимаемой должности»
 	unsigned short int year; //объявление поля «год поступления на работу»
 }; //конец объявление структуры Worker
+
 int _tmain(int argc, _TCHAR* argv[]){
   int n = 10; // объявление константы n — числа элементов типа «Worker»
 	bool people = false;
