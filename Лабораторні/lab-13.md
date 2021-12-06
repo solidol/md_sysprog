@@ -21,7 +21,7 @@
 
 `myfile = fopen("hello.txt", "r");`
 
-Основні режими відкриття файлів представлені у таблиці нижче.
+Основні режими відкриття файлів представлені у таблиці нижче.           
 
 | Назва         | Що робить          |
 | ------------- |:------------------:| 
@@ -82,27 +82,24 @@ void main( void )
 {
 FILE *file;
 char* file_name = "file.txt";
-char load_string[50] = "none";
+char load_string[50];
 
-file = fopen( file_name, "w" ); //відкриття файлу у режимі читання
+file = fopen( file_name, "r" ); //відкриття файлу у режимі читання
+fgets( load_string, 50 , file ); //зчитування з файлу 50 символів
+cout << "load_string = " << load_string << endl;
+fclose(file); //закриття файлу     
 
-fputs( "string", file ); //запис рядка у файл
-
-fclose( file ); //закриття файлу
-
-file = fopen( file_name, "r" ); //відкриття файлу у режимі запису
+file = fopen( file_name, "w" ); //відкриття файлу у режимі запису
 if( file != 0 )
-{
-    fgets( load_string, 50 , file ); 
-    cout << "load_string = " << load_string << endl;
-    }
+    {
+    fputs( "string", file ); //запис рядка у файл
+    } 
     else
     {
-        cout << "File not found !!!" << endl;
+    cout << "File not found !!!" << endl;
     }
-    fclose(file); //закриття файлу
+    fclose(file); //закриття файлу 
 }
-
 ```
 
 ## Хід роботи
