@@ -78,18 +78,17 @@
 #include <iostream.h>
 #include <stdio.h>
 
-void main( void )
+void main()
 {
 FILE *file;
-char* file_name = "file.txt";
 char load_string[50];
 
-file = fopen( file_name, "r" ); //відкриття файлу у режимі читання
+file = fopen("file.txt", "r" ); //відкриття файлу у режимі читання
 fgets( load_string, 50 , file ); //зчитування з файлу 50 символів
 cout << "load_string = " << load_string << endl;
 fclose(file); //закриття файлу     
 
-file = fopen( file_name, "w" ); //відкриття файлу у режимі запису
+file = fopen("file.txt", "w" ); //відкриття файлу у режимі запису
 if( file != 0 )
     {
     fputs( "string", file ); //запис рядка у файл
